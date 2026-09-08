@@ -3,8 +3,6 @@
    style.css — Premium redesign. All shared styles and tokens.
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap");
-
 /* ── TOKENS ─────────────────────────────────────────────── */
 :root {
   /* Colours (exact brand system) */
