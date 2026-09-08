@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- EDIT: Page title -->
+  <title id="meta-title">Article — Hot & Juicy Podcast Blog</title>
+
+  <!-- EDIT: Meta description — 150-160 characters -->
+  <meta name="description" id="meta-desc" content="Read this article from the Hot & Juicy Podcast blog. Stories on Kenyan diaspora life, culture, food, and relationships in Doha and beyond.">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" id="meta-canonical" href="https://hotandjuicypodcast.com/blog/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" id="og-url" content="https://hotandjuicypodcast.com/blog/">
+  <meta property="og:title" id="og-title" content="Article — Hot & Juicy Blog">
+  <meta property="og:description" id="og-desc" content="">
+  <meta property="og:image" id="og-image" content="https://hotandjuicypodcast.com/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hotandjuicypodcast">
+
+  <!-- Article Schema — auto-populated by JS -->
+  <script type="application/ld+json" id="articleSchema"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="theme-color" content="#111111">
+  <style>
+    /* Article body typography */
+    .article-body h2 { font-size: var(--fs-2xl); margin: var(--sp-8) 0 var(--sp-4); }
+    .article-body h3 { font-size: var(--fs-xl); margin: var(--sp-6) 0 var(--sp-3); }
+    .article-body p  { font-size: var(--fs-lg); line-height: 1.85; color: var(--c-text); margin-bottom: var(--sp-5); }
+    .article-body blockquote {
+      border-left: 3px solid var(--c-amber);
+      margin: var(--sp-8) 0;
+      padding: var(--sp-4) var(--sp-6);
+      background: rgba(245,166,35,0.06);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+    }
+    .article-body blockquote p { font-style: italic; font-size: var(--fs-xl); color: var(--c-cream); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 var(--sp-5) var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .article-body ul li { list-style: disc; color: var(--c-text); font-size: var(--fs-lg); line-height: 1.7; }
+    .article-body ol li { list-style: decimal; color: var(--c-text); font-size: var(--fs-lg); line-height: 1.7; }
+    .article-body strong { color: var(--c-cream); }
+    .article-body a { color: var(--c-amber); text-decoration: underline; }
+    .article-body a:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="sr-only" style="position:fixed;top:10px;left:10px;z-index:9999;background:var(--c-amber);color:var(--c-bg);padding:8px 16px;border-radius:var(--r-sm);text-decoration:none;font-weight:600;">Skip to content</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo"><img src="../images/Logo.jpg" alt="Hot &amp; Juicy Podcast" class="nav__logo-img"></a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../episodes/index.html">Episodes</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../community.html">Community</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA" target="_blank" rel="noopener" class="btn btn--primary nav__cta">🎧 Listen Now</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+  <a href="../episodes/index.html">Episodes</a>
+  <a href="index.html">Blog</a>
+  <a href="../about.html">About</a>
+  <a href="../community.html">Community</a>
+  <a href="../contact.html">Contact</a>
+  <a href="https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA" target="_blank" rel="noopener" class="btn btn--primary">🎧 Listen Now</a>
+</div>
+
+<!-- POST PAGE -->
+<div id="blogPage" class="page-top">
+
+  <!-- HERO -->
+  <section class="hero" id="main-content" aria-label="Article hero">
+    <div class="hero-inner">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <a href="index.html">Blog</a>
+        <span>›</span>
+        <!-- EDIT: Article title for breadcrumb -->
+        <span id="post-breadcrumb">Article</span>
+      </nav>
+
+      <!-- Category -->
+      <!-- EDIT: Article category -->
+      <div id="post-category" class="blog-card__category" style="margin:var(--sp-4) 0;">Category</div>
+
+      <!-- EDIT: Article headline -->
+      <h1 id="post-title" style="margin-bottom:var(--sp-4);">Article Title Goes Here</h1>
+
+      <!-- Meta: author + date -->
+      <div style="display:flex;align-items:center;gap:var(--sp-5);flex-wrap:wrap;margin-bottom:var(--sp-5);">
+        <div style="display:flex;align-items:center;gap:var(--sp-3);">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--c-amber),var(--c-coral));display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:700;color:#fff;font-size:0.85rem;">H</div>
+          <!-- EDIT: Author name -->
+          <span id="post-author" style="font-size:var(--fs-sm);color:var(--c-cream);font-weight:500;">Hot &amp; Juicy Team</span>
+        </div>
+        <!-- EDIT: Publish date -->
+        <span id="post-date" style="font-size:var(--fs-sm);color:var(--c-muted);">June 10, 2025</span>
+      </div>
+
+      <!-- Share buttons -->
+      <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-6);">
+        <button class="share-btn" data-share-whatsapp data-share-text="" aria-label="Share on WhatsApp">💬 WhatsApp</button>
+        <button class="share-btn" data-share-twitter data-share-text="" aria-label="Share on X">𝕏 Share on X</button>
+        <button class="share-btn" data-copy-link aria-label="Copy link">🔗 Copy Link</button>
+      </div>
+
+      <div id="post-featured-image" style="aspect-ratio:16/9;background:var(--c-bg-3);border-radius:var(--r-lg);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:3rem;">
+        ✍️
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section style="padding:var(--sp-8) 0 var(--sp-8);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--sp-7);align-items:start;">
+
+        <!-- Main article content -->
+        <div>
+          <article class="article-body" id="post-body">
+            <!--
+              EDIT: Replace this content with your article.
+              Use standard HTML tags:
+                <h2> for main section headings
+                <h3> for sub-headings
+                <p> for paragraphs
+                <blockquote><p>Quote here</p></blockquote> for pull quotes
+                <ul><li>Item</li></ul> for bullet lists
+                <ol><li>Item</li></ol> for numbered lists
+                <strong> for bold text
+            -->
+            <p>This is where your article content goes. Replace this placeholder with your full article text. Write naturally and in the Hot &amp; Juicy voice — bold, authentic, and conversational.</p>
+
+            <h2>First Section Heading</h2>
+            <p>Add your section content here. Each section should tackle one idea or question clearly before moving on.</p>
+
+            <blockquote>
+              <p>"Pull out a powerful quote from your article here. This creates visual variety and highlights key ideas."</p>
+            </blockquote>
+
+            <h2>Second Section Heading</h2>
+            <p>Continue the article here. Aim for a natural reading rhythm — short paragraphs, clear sentences, real opinions.</p>
+
+            <h3>A Sub-point Worth Making</h3>
+            <p>Sub-sections work well when a main section has multiple angles worth exploring.</p>
+          </article>
+
+          <div class="divider" style="margin:var(--sp-6) 0;"></div>
+
+          <!-- EPISODE CTA — links to related episode -->
+          <div style="background:var(--c-bg-2);border:1px solid var(--c-border-warm);border-radius:var(--r-lg);padding:var(--sp-6);" id="related-episode-cta">
+            <span class="eyebrow">Related Episode</span>
+            <h3 style="margin:var(--sp-2) 0 var(--sp-2);" id="cta-ep-title">Listen to the Full Conversation</h3>
+            <p style="font-size:var(--fs-sm);margin-bottom:var(--sp-5);" id="cta-ep-desc">We went deeper on this topic in a recent episode. Press play and hear it straight from the crew.</p>
+            <a href="#" class="btn btn--primary" id="cta-ep-link">▶ Listen to the Episode</a>
+          </div>
+
+          <div class="divider" style="margin:var(--sp-6) 0;"></div>
+
+          <!-- Author bio -->
+          <div style="display:flex;gap:var(--sp-5);align-items:flex-start;padding:var(--sp-6);background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:var(--r-lg);">
+            <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--c-amber),var(--c-coral));display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:700;font-size:1.2rem;color:#fff;flex-shrink:0;">H</div>
+            <div>
+              <div style="font-family:var(--f-display);font-weight:700;color:var(--c-cream);margin-bottom:var(--sp-2);">Hot &amp; Juicy Team</div>
+              <p style="font-size:var(--fs-sm);">The Hot &amp; Juicy Podcast team — Mapettco, Kabua, and Keithalfred01 — bringing you real conversations on culture, diaspora life, relationships, and more from Doha, Qatar.</p>
+            </div>
+          </div>
+
+          <div class="divider" style="margin:var(--sp-8) 0;"></div>
+
+          <!-- Share again at bottom -->
+          <div>
+            <p style="font-family:var(--f-display);font-weight:700;color:var(--c-cream);margin-bottom:var(--sp-4);">Share This Article</p>
+            <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;">
+              <button class="share-btn" data-share-whatsapp data-share-text="">💬 WhatsApp</button>
+              <button class="share-btn" data-share-twitter data-share-text="">𝕏 Share on X</button>
+              <button class="share-btn" data-copy-link>🔗 Copy Link</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar-sticky" aria-label="Article sidebar">
+
+          <!-- Subscribe card -->
+          <div style="background:var(--c-coral);border-radius:var(--r-lg);padding:var(--sp-6);text-align:center;margin-bottom:var(--sp-5);">
+            <div style="font-size:1.8rem;margin-bottom:var(--sp-3);">🎙</div>
+            <h3 style="color:#fff;font-size:1rem;margin-bottom:var(--sp-2);">Prefer to Listen?</h3>
+            <p style="color:rgba(255,255,255,0.85);font-size:var(--fs-sm);margin-bottom:var(--sp-5);">Subscribe to Hot &amp; Juicy and never miss a conversation.</p>
+            <a href="https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA" target="_blank" rel="noopener"
+               style="display:block;background:#fff;color:var(--c-coral);font-family:var(--f-display);font-weight:700;font-size:var(--fs-sm);padding:11px;border-radius:var(--r-md);text-align:center;margin-bottom:var(--sp-2);">
+              🎧 Spotify
+            </a>
+            <a href="https://www.youtube.com/@hotandjuicypodcast" target="_blank" rel="noopener"
+               style="display:block;background:rgba(255,255,255,0.15);color:#fff;font-family:var(--f-display);font-weight:700;font-size:var(--fs-sm);padding:11px;border-radius:var(--r-md);text-align:center;">
+              ▶ YouTube
+            </a>
+          </div>
+
+          <!-- Newsletter -->
+          <div style="background:var(--c-bg-2);border:1px solid var(--c-border-warm);border-radius:var(--r-lg);padding:var(--sp-6);margin-bottom:var(--sp-5);">
+            <span class="eyebrow" style="font-size:var(--fs-xs);">Newsletter</span>
+            <h3 style="font-size:1rem;margin:var(--sp-2) 0 var(--sp-2);">Get More Like This</h3>
+            <p style="font-size:var(--fs-sm);margin-bottom:var(--sp-4);">New articles and episode drops every week.</p>
+            <!-- BEEHIIV EMBED PLACEHOLDER -->
+            <form data-nl-form>
+              <input type="email" placeholder="Your email" aria-label="Newsletter email" required
+                style="width:100%;padding:11px var(--sp-3);border-radius:var(--r-md);border:1px solid var(--c-border);background:var(--c-bg-3);color:var(--c-cream);font-size:var(--fs-sm);margin-bottom:var(--sp-2);outline:none;">
+              <button type="submit" class="btn btn--amber btn--full btn--sm" style="justify-content:center;">Subscribe Free</button>
+            </form>
+            <p style="font-size:var(--fs-xs);color:var(--c-muted);margin-top:var(--sp-2);text-align:center;">No spam. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Related posts -->
+          <div style="background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--sp-5);">
+            <p style="font-family:var(--f-display);font-size:var(--fs-xs);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted);margin-bottom:var(--sp-4);">More Articles</p>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-4);" id="sidebar-related-posts"></div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED POSTS -->
+  <section class="section section--alt" aria-labelledby="related-posts-heading">
+    <div class="container">
+      <div class="section-hdr flex-between" style="align-items:flex-end;margin-bottom:var(--sp-8);">
+        <div>
+          <span class="eyebrow">Keep Reading</span>
+          <h2 id="related-posts-heading">More Articles</h2>
+        </div>
+        <a href="index.html" class="btn btn--ghost">All Posts →</a>
+      </div>
+      <!-- EDIT: Manually link to 2 related posts, or let JS auto-select -->
+      <div class="grid-2" id="related-posts"></div>
+    </div>
+  </section>
+
+</div><!-- /blogPage -->
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="../images/Logo.jpg" alt="Hot &amp; Juicy Podcast" class="footer__logo-img">
+          <span class="footer__logo-text">Hot &amp; Juicy</span>
+        </div>
+        <p class="footer__tagline">Real Conversations. Spicy Topics.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/hotandjuicypodcast" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+          <a href="https://www.tiktok.com/@hotandjuicypodcast" target="_blank" rel="noopener" aria-label="TikTok">🎵</a>
+          <a href="https://www.youtube.com/@hotandjuicypodcast" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../episodes/index.html">Episodes</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Listen</p>
+        <ul class="footer__links">
+          <li><a href="https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA" target="_blank" rel="noopener">Spotify</a></li>
+          <li><a href="https://www.youtube.com/@hotandjuicypodcast" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Newsletter</p>
+        <!-- BEEHIIV EMBED PLACEHOLDER -->
+        <div class="footer__nl">
+          <input type="email" placeholder="Your email" aria-label="Newsletter email">
+          <button class="btn btn--amber btn--full btn--sm">Subscribe</button>
+        </div>
+        <p style="font-size:var(--fs-xs);color:var(--c-muted);margin-top:var(--sp-2);">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="currentYear"></span> Hot &amp; Juicy Podcast.</span>
+      <span><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../terms-of-service.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  if (typeof blogPosts === 'undefined') return;
+
+  const params = new URLSearchParams(window.location.search);
+  let id = params.get('id');
+  const match = window.location.pathname.match(/\/blog\/(post-\d+)/);
+  if (!id && match) id = match[1];
+  const post = id ? blogPosts.find(p => p.id === id) : null;
+  if (!post) return;
+
+  document.getElementById('meta-title').textContent = `${post.title} — Hot & Juicy Blog`;
+  document.getElementById('meta-desc').setAttribute('content', post.excerpt);
+  document.getElementById('og-title').setAttribute('content', post.title);
+  document.getElementById('og-desc').setAttribute('content', post.excerpt);
+  const ogUrl = document.getElementById('og-url');
+  if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', window.location.href);
+
+  const bc = document.getElementById('post-breadcrumb');
+  if (bc) bc.textContent = post.title.length > 40 ? post.title.slice(0,40)+'…' : post.title;
+
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setText('post-category', post.category);
+  setText('post-title', post.title);
+  setText('post-author', post.author);
+  setText('post-date', new Date(post.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}));
+
+  const featImg = document.getElementById('post-featured-image');
+  if (featImg) {
+    if (post.image) {
+      featImg.innerHTML = `<img src="../images/${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">`;
+    } else {
+      featImg.innerHTML = '✍️';
+    }
+  }
+
+  const bodyEl = document.getElementById('post-body');
+  if (bodyEl && post.body) bodyEl.innerHTML = post.body;
+
+  const schemaEl = document.getElementById('articleSchema');
+  if (schemaEl) {
+    schemaEl.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.publishedAt,
+      "author": { "@type": "Person", "name": post.author },
+      "publisher": { "@type": "Organization", "name": "Hot & Juicy Podcast", "url": "https://hotandjuicypodcast.com" }
+    });
+  }
+
+  if (post.relatedEpisode && typeof episodes !== 'undefined') {
+    const ep = episodes.find(e => e.id === post.relatedEpisode);
+    if (ep) {
+      const titleEl = document.getElementById('cta-ep-title');
+      const descEl  = document.getElementById('cta-ep-desc');
+      const linkEl  = document.getElementById('cta-ep-link');
+      if (titleEl) titleEl.textContent = ep.title;
+      if (descEl)  descEl.textContent  = ep.description;
+      if (linkEl)  linkEl.href = episodeUrl(ep);
+    }
+  }
+
+  const others = blogPosts.filter(p => p.id !== post.id);
+  const sameCat = others.filter(p => p.category === post.category);
+  const related = [...sameCat, ...others.filter(p => p.category !== post.category)].slice(0, 2);
+
+  const renderCard = p => `
+    <a href="${blogPostUrl(p)}" class="card blog-card">
+      <div class="blog-card__thumb">
+        ${p.image
+          ? `<img src="../images/${p.image}" alt="${p.title}" loading="lazy">`
+          : `<div style="height:100%;background:var(--c-bg-3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;min-height:180px;">✍️</div>`}
+      </div>
+      <div class="blog-card__body">
+        <div class="blog-card__category">${p.category}</div>
+        <div class="blog-card__title">${p.title}</div>
+        <p class="blog-card__excerpt">${p.excerpt}</p>
+      </div>
+      <div class="blog-card__footer"><span>${p.author}</span><span>${new Date(p.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span></div>
+    </a>`;
+
+  const relEl = document.getElementById('related-posts');
+  if (relEl) relEl.innerHTML = related.map(renderCard).join('');
+
+  const sideEl = document.getElementById('sidebar-related-posts');
+  if (sideEl) {
+    sideEl.innerHTML = related.map(p => `
+      <a href="${blogPostUrl(p)}" style="display:block;text-decoration:none;">
+        <div style="font-size:var(--fs-xs);color:var(--c-amber);margin-bottom:3px;">${p.category}</div>
+        <div style="font-family:var(--f-display);font-weight:600;font-size:var(--fs-sm);color:var(--c-cream);line-height:1.35;">${p.title}</div>
+      </a>`).join('');
+  }
+})();
+</script>
+</body>
+</html>

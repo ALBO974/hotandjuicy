@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Hot & Juicy Podcast</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="theme-color" content="#111111">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo"><img src="images/Logo.jpg" alt="Hot &amp; Juicy Podcast" class="nav__logo-img"></a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="episodes/index.html">Episodes</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="episodes/index.html">Episodes</a>
+  <a href="blog/index.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="community.html">Community</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- 404 CONTENT -->
+<main class="page-top" style="min-height:80vh;display:flex;align-items:center;">
+  <div class="container text-center" style="padding:var(--sp-8) var(--sp-6);">
+
+    <div style="font-size:5rem;margin-bottom:var(--sp-6);line-height:1;" aria-hidden="true">🔥</div>
+
+    <span class="eyebrow">404 — Page Not Found</span>
+    <h1 style="margin:var(--sp-3) 0 var(--sp-4);">This Page Got Too <span class="text-amber">Spicy</span></h1>
+    <p style="max-width:440px;margin:0 auto var(--sp-6);font-size:var(--fs-lg);">We couldn't find what you were looking for. The page may have moved, been renamed, or never existed. Let's get you back on track.</p>
+
+    <div class="flex flex-center gap-4 flex-wrap" style="margin-bottom:var(--sp-8);">
+      <a href="index.html" class="btn btn--primary btn--lg">← Back to Home</a>
+      <a href="episodes/index.html" class="btn btn--outline btn--lg">Browse Episodes</a>
+      <a href="contact.html" class="btn btn--ghost btn--lg">Contact Us</a>
+    </div>
+
+    <!-- Quick links -->
+    <div style="border-top:1px solid var(--c-border);padding-top:var(--sp-6);">
+      <p style="font-family:var(--f-display);font-size:var(--fs-sm);font-weight:700;color:var(--c-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--sp-6);">Quick Links</p>
+      <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap;">
+        <a href="index.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">Home</a>
+        <a href="episodes/index.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">All Episodes</a>
+        <a href="blog/index.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">Blog</a>
+        <a href="about.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">About</a>
+        <a href="community.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">Community</a>
+        <a href="sponsors.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">Sponsors</a>
+        <a href="contact.html" style="color:var(--c-amber);font-size:var(--fs-sm);font-weight:500;">Contact</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__bottom" style="border-top:1px solid var(--c-border);padding-top:var(--sp-6);">
+      <span>&copy; <span id="currentYear"></span> Hot &amp; Juicy Podcast.</span>
+      <span><a href="privacy-policy.html">Privacy</a> · <a href="terms-of-service.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

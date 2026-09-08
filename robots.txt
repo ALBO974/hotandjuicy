@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hotandjuicypodcast.com/sitemap.xml
+Sitemap: https://hotandjuicypodcast.com/podcast-sitemap.xml

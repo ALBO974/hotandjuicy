@@ -1,0 +1,12 @@
+{
+  "name": "hot-juicy-podcast",
+  "version": "1.0.0",
+  "description": "Hot & Juicy Podcast website",
+  "scripts": {
+    "fetch episodes": "node scripts/fetch-youtube-rss.js",
+    "dev": "npx serve ."
+  },
+  "dependencies": {
+    "jsdom": "^21.1.2"
+  }
+}
