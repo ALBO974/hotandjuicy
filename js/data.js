@@ -581,9 +581,17 @@ function getYouTubeThumb(youtubeId, quality = 'maxresdefault') {
 
 /* ── EPISODE URL HELPER ──────────────────────────────────── */
 function episodeUrl(ep) {
-  return `/episodes/episode-template.html?id=${ep.id}`;
+  var path = window.location.pathname;
+  if (path.includes('/episodes/')) {
+    return `episode-template.html?id=${ep.id}`;
+  }
+  return `episodes/episode-template.html?id=${ep.id}`;
 }
 
 function blogPostUrl(post) {
-  return `/blog/post-template.html?id=${post.id}`;
+  var path = window.location.pathname;
+  if (path.includes('/blog/')) {
+    return `post-template.html?id=${post.id}`;
+  }
+  return `blog/post-template.html?id=${post.id}`;
 }

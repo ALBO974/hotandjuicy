@@ -580,7 +580,7 @@
   if (!el) return;
   blogPosts.slice(0, 2).forEach(post => {
     el.innerHTML += `
-      <a href="/blog/${post.id}" class="card blog-card">
+      <a href="blog/${post.id}" class="card blog-card">
         <div class="blog-card__thumb">
           ${post.image
             ? `<img src="images/${post.image}" alt="${post.title}" loading="lazy">`

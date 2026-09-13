@@ -609,7 +609,7 @@ function formatDate(dateStr) {
         <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
         <h2>Episode not found</h2>
         <p style="margin:12px 0 28px;">This episode may have moved or the link is incorrect.</p>
-        <a href="/episodes" class="btn btn--primary">Browse All Episodes</a>
+        <a href="index.html" class="btn btn--primary">Browse All Episodes</a>
       </div>`;
     return;
   }
@@ -825,7 +825,7 @@ function formatDate(dateStr) {
       <div style="text-align:center;padding:80px 24px;">
         <h2>Post not found</h2>
         <p style="margin:12px 0 28px;">This article may have moved or the link is incorrect.</p>
-        <a href="/blog" class="btn btn--primary">Browse All Posts</a>
+        <a href="index.html" class="btn btn--primary">Browse All Posts</a>
       </div>`;
     return;
   }
