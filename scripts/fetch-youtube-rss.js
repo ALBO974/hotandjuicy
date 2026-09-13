@@ -1,4 +1,4 @@
-﻿/**
+/**
  * fetch-youtube-rss.js
  * ====================
  * Fetches YouTube RSS feed for Hot & Juicy Podcast,

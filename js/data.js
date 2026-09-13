@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    HOT & JUICY PODCAST — data.js
    All content data: episodes, blog posts, hosts
    Edit this file to add new episodes and blog posts.
