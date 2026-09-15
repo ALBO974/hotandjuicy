@@ -866,3 +866,9 @@ function setMeta(name, content) {
   const el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
   if (el) el.setAttribute('content', content);
 }
+/* ─ Service worker: offline support + installability ── */
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
