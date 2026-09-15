@@ -2,7 +2,7 @@
  * Network-first for pages (fresh content), stale-while-revalidate
  * for assets. Bump CACHE_VERSION whenever shell files change.
  * ────────────────────────────────────────────────────────── */
-const CACHE_VERSION = 'hj-v1';
+const CACHE_VERSION = 'hj-v2';
 
 const PRECACHE = [
   '/',
@@ -62,7 +62,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Assets: stale-while-revalidate
+  // CSS/JS: network-first so code is always fresh (cache only as offline fallback)
+  if (/\.(css|js)$/.test(url.pathname) || url.pathname.startsWith('/css/') || url.pathname.startsWith('/js/')) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Images and everything else: stale-while-revalidate
   event.respondWith(
     caches.match(request).then((cached) => {
       const refresh = fetch(request)
