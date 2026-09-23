@@ -6,25 +6,15 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/episodes/episode-template",
-      "destination": "/episodes",
-      "permanent": false
-    },
-    {
-      "source": "/blog/post-template",
-      "destination": "/blog",
-      "permanent": false
     }
   ],
   "rewrites": [
     {
-      "source": "/episodes/ep-:id",
+      "source": "/episodes/:id",
       "destination": "/episodes/episode-template.html"
     },
     {
-      "source": "/blog/post-:id",
+      "source": "/blog/:id",
       "destination": "/blog/post-template.html"
     }
   ],
