@@ -21,7 +21,7 @@
   --c-cream-2: #ede8e0;
   --c-text: #F5F1EA;
   --c-muted: #B8B2A7;
-  --c-muted-2: #6b6363;
+  --c-muted-2: #9a9090;
   --c-white: #ffffff;
 
   /* Typography — Syne (headings) + Inter (body) */
@@ -290,7 +290,7 @@ strong { color: var(--c-text); font-weight: 600; }
 }
 .btn--white {
   background: #fff;
-  color: var(--c-coral);
+  color: var(--c-coral-btn);
 }
 .btn--white:hover { background: var(--c-cream); }
 .btn--lg { padding: 18px 36px; font-size: var(--fs-base); }

@@ -68,6 +68,7 @@
     </button>
   </div>
 </nav>
+  <main>
 <div class="nav__mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
   <a href="episodes/index.html">Episodes</a>
@@ -347,6 +348,7 @@
 </section>
 
 <!-- -- FOOTER -- -->
+  </main>
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer__grid">
@@ -521,7 +523,7 @@
   hosts.forEach(h => {
     const socIcons = {instagram:'📸',tiktok:'🎵',youtube:'▶️',x:'𝕏'};
     const socLinks = Object.entries(h.socials).map(([k,v]) =>
-      `<a href="${v}" target="_blank" rel="noopener noreferrer" aria-label="${h.name} on ${k}">${socIcons[k]||'🔗'}</a>`
+      `<a href="${v}" target="_blank" rel="noopener noreferrer" aria-label="${socIcons[k]||'🔗'} ${k}">${socIcons[k]||'🔗'}</a>`
     ).join('');
     el.innerHTML += `
       <div class="host-card">
