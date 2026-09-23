@@ -549,7 +549,7 @@ function handleImageError(img, fallback) {
       <a href="${blogPostUrl(post)}" class="card blog-card">
         <div class="blog-card__thumb">
           ${post.image
-            ? `<img src="images/${post.image}" alt="${post.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'height:100%;background:var(--c-bg-3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;min-height:180px;\\'>✍️</div>'">`
+            ? `<img src="../images/${post.image}" alt="${post.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'height:100%;background:var(--c-bg-3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;min-height:180px;\\'>✍️</div>'">`
             : `<div style="height:100%;background:var(--c-bg-3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;min-height:180px;">✍️</div>`}
         </div>
         <div class="blog-card__body">
@@ -640,7 +640,8 @@ function formatDate(dateStr) {
 
   const embedEl = document.getElementById('ep-embed');
   if (embedEl && ep.youtubeId) {
-    embedEl.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ep.youtubeId}?rel=0&enablejsapi=1&origin=${encodeURIComponent(location.origin)}" title="${ep.title}" loading="lazy" credentialless allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe>`;
+    const YT_PARAMS = /^https?:$/.test(location.protocol) ? `?rel=0&enablejsapi=1&origin=${encodeURIComponent(location.origin)}` : "?rel=0";
+    embedEl.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ep.youtubeId}${YT_PARAMS}" title="${ep.title}" loading="lazy" credentialless allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe>`;
   }
 
   const tagsEl = document.getElementById('ep-tags');
