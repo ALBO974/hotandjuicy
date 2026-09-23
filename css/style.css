@@ -70,6 +70,7 @@
 
 /* ── RESET ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { overflow-wrap: break-word; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--f-body);
@@ -143,10 +144,25 @@ strong { color: var(--c-text); font-weight: 600; }
 
 .page-top { padding-top: var(--nav-h); }
 
-/* Grids */
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); }
+/* Grids — deterministic breakpoints; items never inflate tracks */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--sp-4); }
+.grid-3 { display: grid; grid-template-columns: 1fr; gap: var(--sp-3); }
+.grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
+.grid-2 > *, .grid-3 > *, .grid-4 > * { min-width: 0; }
+@media (min-width: 700px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 800px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8); }
+}
+@media (min-width: 1000px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* form + sidebar split: fixed sidebar column, single column under 900px */
+.layout-split { display: grid; grid-template-columns: 1fr 360px; gap: var(--sp-8); align-items: start; }
+@media (max-width: 900px) { .layout-split { grid-template-columns: 1fr; } }
 
 /* Flex */
 .flex { display: flex; }
@@ -1371,6 +1387,16 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .platform-pill:focus-
 .form-error.is-visible { display: block; }
 .form-hint { font-size: var(--fs-xs); color: var(--c-muted); margin-top: var(--sp-1); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.form-row > * { min-width: 0; }
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+/* host profile rows (about page, JS-rendered): stack under 760px */
+.host-row { display: grid; grid-template-columns: 1fr 220px; gap: var(--sp-7); align-items: center; }
+.host-row--flip { grid-template-columns: 220px 1fr; }
+@media (max-width: 760px) {
+  .host-row, .host-row--flip { grid-template-columns: 1fr; }
+  .host-row > *, .host-row--flip > * { min-width: 0; }
+}
 .form-success {
   display: none; text-align: center;
   padding: var(--sp-5) var(--sp-3);
@@ -1964,3 +1990,38 @@ a:focus-visible, button:focus-visible { border-radius: var(--r-sm); }
   line-height: 1.05;
   margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
 }
+
+/* flexible form rows: let inputs shrink below intrinsic width */
+form[data-nl-form] input { min-width: 0; }
+
+
+/* form rows: inputs shrink safely; single column on small screens */
+.form-row > * { min-width: 0; }
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+/* host profile rows (about page, JS-rendered): stack under 760px */
+.host-row { display: grid; grid-template-columns: 220px 1fr; gap: var(--sp-7); align-items: center; }
+.host-row--flip { grid-template-columns: 1fr 220px; }
+@media (max-width: 760px) {
+  .host-row, .host-row--flip { grid-template-columns: 1fr; }
+}
+
+/* flexible form rows: let inputs shrink below intrinsic width */
+form[data-nl-form] input { min-width: 0; }
+
+
+/* generic two-column split (content + sidebar/aside), collapses under 900px */
+.split { display: grid; grid-template-columns: 1fr minmax(0, var(--side, 320px)); gap: var(--sp-8); align-items: start; }
+.split > * { min-width: 0; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+/* hero2 buttons may wrap their label on small screens */
+@media (max-width: 560px) {
+  .hero2 .btn-primary, .hero2 .btn { white-space: normal; }
+}
+
+/* form controls must never inflate their grid/flex track (intrinsic size= attr) */
+input, select, textarea { min-width: 0; max-width: 100%; }
+
+/* split-layout buttons wrap instead of inflating min-content */
+.layout-split .btn, .split .btn { white-space: normal; }

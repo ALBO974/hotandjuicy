@@ -107,7 +107,7 @@
 <!-- MISSION -->
 <section class="section" aria-labelledby="mission-heading">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center;">
+    <div class="split" style="--side:300px;align-items:center;">
       <div>
         <span class="eyebrow">Our Mission</span>
         <h2 id="mission-heading" style="margin-bottom:var(--sp-5);">The Conversations You Actually Want to Have</h2>
@@ -306,7 +306,7 @@
       </div>`;
 
     el.innerHTML += `
-      <div style="display:grid;grid-template-columns:${isEven ? '220px 1fr' : '1fr 220px'};gap:var(--sp-7);align-items:center;padding:var(--sp-6);background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:var(--r-lg);">
+      <div class="host-row${isEven ? '' : ' host-row--flip'}" style="padding:var(--sp-6);background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:var(--r-lg);">
         ${isEven ? avatar + content : content + avatar}
       </div>`;
   });
