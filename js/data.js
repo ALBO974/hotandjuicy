@@ -250,7 +250,7 @@ const episodes = [
      type:        "full",
      title:       "Food Controversies",
      slug:        "food-controversies",
-     youtubeId:   "",
+     youtubeId:   "PMP3Tqt0lUk",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
      appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We settle the biggest food debates — ugali vs chapati, nyama choma protocols, and the dishes that divide families. Nothing is off the table.",
