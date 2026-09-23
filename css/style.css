@@ -16,6 +16,7 @@
   --c-amber-dk: #D48809;
   --c-coral: #FF1016;
   --c-coral-dk: #D40D12;
+  --c-coral-btn: #E0120F;
   --c-cream: #FFFFFF;
   --c-cream-2: #ede8e0;
   --c-text: #F5F1EA;
@@ -362,7 +363,8 @@ strong { color: var(--c-text); font-weight: 600; }
 
 /* Mobile nav */
 .nav__toggle {
-  display: none; flex-direction: column; gap: 5px; padding: var(--sp-1);
+  display: none; flex-direction: column; gap: 5px; padding: 10px; margin: 2px;
+  min-width: 44px; min-height: 44px; justify-content: center; align-items: center;
 }
 .nav__toggle span {
   display: block; width: 24px; height: 2px;
@@ -653,6 +655,7 @@ strong { color: var(--c-text); font-weight: 600; }
 
 /* ── PLATFORM PILLS ──────────────────────────────────────── */
 .platform-pill {
+  min-height: 44px;
   display: inline-flex; align-items: center; gap: var(--sp-1);
   padding: var(--sp-2) var(--sp-3);
   background: var(--c-bg-3);
@@ -793,7 +796,7 @@ strong { color: var(--c-text); font-weight: 600; }
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: linear-gradient(90deg, var(--c-coral), #f0563b);
+  background: linear-gradient(90deg, var(--c-coral-btn), #e83a20);
   color: #fff;
   font-family: var(--f-display);
   font-weight: 600;
@@ -848,6 +851,7 @@ strong { color: var(--c-text); font-weight: 600; }
   .hero:not(.hero--home) .platform-pill { flex: 0 0 auto; }
 }
 .platform-pill {
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1550,7 +1554,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .platform-pill:focus-
   display: flex; gap: var(--sp-1);
 }
 .footer__socials a {
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: var(--c-bg-3);
   border: 1px solid var(--c-border);
@@ -1914,7 +1918,7 @@ a:focus-visible, button:focus-visible { border-radius: var(--r-sm); }
 }
 .hero2-pill {
   display: inline-block;
-  background: var(--c-coral);
+  background: var(--c-coral-btn);
   color: #fff;
   font-family: var(--f-display), sans-serif;
   font-weight: 700;
@@ -2025,3 +2029,6 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 
 /* split-layout buttons wrap instead of inflating min-content */
 .layout-split .btn, .split .btn { white-space: normal; }
+
+/* iOS home-indicator clearance for the sticky bottom CTA */
+.sticky-cta { padding-bottom: calc(8px + env(safe-area-inset-bottom)); }

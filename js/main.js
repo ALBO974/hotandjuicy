@@ -7,9 +7,12 @@
 
 /* ── EMAILJS INIT ────────────────────────────────────────── */
 (function initEmailJS() {
-  if (typeof emailjs !== 'undefined' && typeof EMAILJS_CONFIG !== 'undefined') {
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-  }
+  // email.min.js is deferred, so init after window load when it has executed
+  window.addEventListener('load', function () {
+    if (typeof emailjs !== 'undefined' && typeof EMAILJS_CONFIG !== 'undefined') {
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+    }
+  });
 })();
 
 /* ── NAV ─────────────────────────────────────────────────── */
@@ -23,6 +26,12 @@
     toggle.setAttribute('aria-expanded', String(!isOpen));
     mobile.classList.toggle('is-open', !isOpen);
   });
+
+  // close the mobile panel when a link inside it is tapped (anchors don't navigate)
+  mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    mobile.classList.remove('is-open');
+  }));
 
   document.addEventListener('click', e => {
     if (!toggle.contains(e.target) && !mobile.contains(e.target)) {

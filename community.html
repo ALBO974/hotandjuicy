@@ -301,7 +301,7 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
 <script>
@@ -321,12 +321,13 @@
   for (var i = 1; i <= TOTAL; i++) {
     var slide = document.createElement('div');
     slide.className = 'carousel__slide';
-    slide.setAttribute('data-gallery-img', 'images/gallery-' + i + '.jpg');
+    slide.setAttribute('data-gallery-img', 'images/gallery-' + i + '.webp');
     slide.setAttribute('role', 'button');
     slide.setAttribute('tabindex', '0');
     slide.setAttribute('aria-label', 'Open gallery image ' + i);
     var img = document.createElement('img');
-    img.src = 'images/gallery-' + i + '.jpg';
+    img.src = 'images/gallery-' + i + '.webp';
+    img.decoding = 'async';
     img.alt = 'Gallery ' + i;
     img.loading = 'lazy';
     slide.appendChild(img);
