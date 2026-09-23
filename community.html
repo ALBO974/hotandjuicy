@@ -131,13 +131,21 @@
       <h2 id="gallery-heading">Community Album</h2>
       <p>From live recordings to meetups and behind-the-scenes — flipping through our favourite moments together.</p>
     </div>
-    <div class="carousel" id="communityCarousel">
-      <div class="carousel__viewport" id="carouselViewport">
-        <div class="carousel__track" id="carouselTrack"></div>
-        <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Previous image">‹</button>
-        <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Next image">›</button>
-      </div>
-      <div class="carousel__counter" id="carouselCounter"></div>
+    <div class="album" id="communityAlbum">
+      <div class="album__grid" id="albumGrid"></div>
+      <p class="album__hint">Tap any moment to view it full-screen</p>
+    </div>
+    <div class="lightbox" id="albumLightbox" role="dialog" aria-modal="true" aria-label="Gallery viewer" hidden>
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close viewer">&times;</button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+      <figure class="lightbox__figure">
+        <img id="lightboxImg" src="" alt="">
+        <figcaption class="lightbox__caption">
+          <span id="lightboxCaption"></span>
+          <span id="lightboxCounter" class="lightbox__counter"></span>
+        </figcaption>
+      </figure>
+      <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">&#8250;</button>
     </div>
   </div>
 </section>
@@ -308,90 +316,109 @@
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
 <script>
-(function initCarousel() {
-  var track = document.getElementById('carouselTrack');
-  if (!track) return;
+(function initAlbum() {
+  var grid = document.getElementById('albumGrid');
+  if (!grid) return;
 
   var TOTAL = 22;
-  var current = 0;
-  var autoTimer;
-  var AUTO_DELAY = 5000;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CAPTIONS = ['On Air', 'The Crew', 'Studio Sessions', 'Doha Meetups', 'Behind the Scenes', 'Family'];
+  // curated mosaic: [colSpan, rowSpan] per tile (6-col grid on desktop)
+  var SPANS = [
+    [3,2],[2,1],[1,1],[2,2],[1,1],[2,1],
+    [1,1],[3,2],[2,1],[1,1],[2,2],[1,1],
+    [2,1],[1,1],[2,2],[3,2],[1,1],[2,1],
+    [1,1],[2,1],[2,2],[1,1]
+  ];
 
-  var slides = [];
-
-  // Build slides
+  var tiles = [];
   for (var i = 1; i <= TOTAL; i++) {
-    var slide = document.createElement('div');
-    slide.className = 'carousel__slide';
-    slide.setAttribute('data-gallery-img', 'images/gallery-' + i + '.webp');
-    slide.setAttribute('role', 'button');
-    slide.setAttribute('tabindex', '0');
-    slide.setAttribute('aria-label', 'Open gallery image ' + i);
+    var span = SPANS[(i - 1) % SPANS.length];
+    var tile = document.createElement('button');
+    tile.type = 'button';
+    tile.className = 'album__tile';
+    tile.style.gridColumn = 'span ' + span[0];
+    tile.style.gridRow = 'span ' + span[1];
+    tile.setAttribute('aria-label', 'Open photo: ' + CAPTIONS[(i - 1) % CAPTIONS.length] + ' ' + i);
+    tile.setAttribute('data-index', i - 1);
+
     var img = document.createElement('img');
     img.src = 'images/gallery-' + i + '.webp';
-    img.decoding = 'async';
-    img.alt = 'Gallery ' + i;
+    img.alt = CAPTIONS[(i - 1) % CAPTIONS.length] + ' — Hot & Juicy community moment ' + i;
     img.loading = 'lazy';
-    slide.appendChild(img);
-    track.appendChild(slide);
-    slides.push(slide);
+    img.decoding = 'async';
+    tile.appendChild(img);
+
+    var scrim = document.createElement('span');
+    scrim.className = 'album__scrim';
+    var cap = document.createElement('span');
+    cap.className = 'album__caption';
+    cap.innerHTML = '<em>' + CAPTIONS[(i - 1) % CAPTIONS.length] + '</em>Moment ' + (i < 10 ? '0' + i : i);
+    tile.appendChild(scrim);
+    tile.appendChild(cap);
+
+    grid.appendChild(tile);
+    tiles.push(tile);
   }
 
-  // -- Fade-up entrance via IntersectionObserver --
-  var carouselEl = document.getElementById('communityCarousel');
-  var fadeObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        carouselEl.classList.add('carousel--visible');
-        fadeObs.unobserve(carouselEl);
-      }
+  // staggered reveal on scroll
+  if ('IntersectionObserver' in window) {
+    var reveal = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); reveal.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    tiles.forEach(function (t, idx) {
+      t.style.transitionDelay = (idx % 6) * 70 + 'ms';
+      reveal.observe(t);
     });
-  }, { threshold: 0.15 });
-  fadeObs.observe(carouselEl);
-
-  // -- Counter --
-  var counterEl = document.getElementById('carouselCounter');
-
-  function updateCounter() {
-    counterEl.textContent = (current + 1) + ' / ' + TOTAL;
-  }
-  updateCounter();
-
-  // -- Navigation --
-  function goTo(index) {
-    if (index < 0) index = TOTAL - 1;
-    if (index >= TOTAL) index = 0;
-    current = index;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    updateCounter();
-    resetAuto();
+  } else {
+    tiles.forEach(function (t) { t.classList.add('is-in'); });
   }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+  // -- lightbox --
+  var lb = document.getElementById('albumLightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  var lbCount = document.getElementById('lightboxCounter');
+  var current = 0;
+  var lastFocus = null;
 
-  // -- Button listeners --
-  document.getElementById('carouselPrev').addEventListener('click', prev);
-  document.getElementById('carouselNext').addEventListener('click', next);
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-  // -- Keyboard navigation --
-  carouselEl.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+  function open(idx) {
+    current = (idx + TOTAL) % TOTAL;
+    var i = current + 1;
+    lbImg.src = 'images/gallery-' + i + '.webp';
+    lbImg.alt = CAPTIONS[current % CAPTIONS.length] + ' — Hot & Juicy community moment ' + i;
+    lbCap.textContent = CAPTIONS[current % CAPTIONS.length];
+    lbCount.textContent = pad(i) + ' / ' + pad(TOTAL);
+    if (lb.hidden) {
+      lastFocus = document.activeElement;
+      lb.hidden = false;
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightboxClose').focus();
+    }
+  }
+
+  function close() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  tiles.forEach(function (t) {
+    t.addEventListener('click', function () { open(parseInt(t.getAttribute('data-index'), 10)); });
   });
-
-  // -- Auto-scroll --
-  function startAuto() { stopAuto(); if (!reduced) autoTimer = setInterval(next, AUTO_DELAY); }
-  function stopAuto() { clearInterval(autoTimer); }
-  function resetAuto() { stopAuto(); startAuto(); }
-
-  carouselEl.addEventListener('mouseenter', stopAuto);
-  carouselEl.addEventListener('mouseleave', startAuto);
-  carouselEl.addEventListener('touchstart', stopAuto, { passive: true });
-  carouselEl.addEventListener('touchend', startAuto);
-
-  startAuto();
+  document.getElementById('lightboxClose').addEventListener('click', close);
+  document.getElementById('lightboxNext').addEventListener('click', function () { open(current + 1); });
+  document.getElementById('lightboxPrev').addEventListener('click', function () { open(current - 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') open(current + 1);
+    if (e.key === 'ArrowLeft') open(current - 1);
+  });
 })();
 </script>
 </body>
