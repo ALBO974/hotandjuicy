@@ -461,7 +461,7 @@
   el.innerHTML = `
     <div class="video-wrap">
       ${ep.youtubeId
-        ? `<iframe src="https://www.youtube.com/embed/${ep.youtubeId}" title="${ep.title}" loading="lazy" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>`
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${ep.youtubeId}" title="${ep.title}" loading="lazy" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>`
         : `<div style="width:100%;aspect-ratio:16/9;background:var(--c-bg-3);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:3rem;">🎬</div>`}
     </div>
     <div>

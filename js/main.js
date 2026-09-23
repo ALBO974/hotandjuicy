@@ -640,7 +640,7 @@ function formatDate(dateStr) {
 
   const embedEl = document.getElementById('ep-embed');
   if (embedEl && ep.youtubeId) {
-    embedEl.innerHTML = `<iframe src="https://www.youtube.com/embed/${ep.youtubeId}" title="${ep.title}" loading="lazy" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>`;
+    embedEl.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ep.youtubeId}?rel=0&enablejsapi=1&origin=${encodeURIComponent(location.origin)}" title="${ep.title}" loading="lazy" credentialless allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe>`;
   }
 
   const tagsEl = document.getElementById('ep-tags');
