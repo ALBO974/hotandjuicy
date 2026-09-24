@@ -1,6 +1,14 @@
 # Audit Follow-Up Report — Hot & Juicy Podcast
 
-**Date:** 2026-09-23 · **Scope:** remediation of every item in `audit-report.md` · **Status of code:** all fixes committed locally on `main` (13 commits, `0b4ae84`…`1b54b08`) — **not pushed**; deployment happens after owner approval.
+**Date:** 2026-09-23 · **Scope:** remediation of every item in `audit-report.md` + post-audit fixes · **Status of code:** all fixes committed locally on `main` (17 commits, `0b4ae84`…`b2845c4`) — **not pushed**; deployment happens after owner approval.
+
+## 0. Post-audit additions (owner-reported issues)
+
+| Issue | Fix | Commit |
+|---|---|---|
+| YouTube **error 153** persisted | Root cause found: the page was opened via `file://` (double-clicking index.html) — the `origin=file://` param is invalid and YouTube rejects it. Embed params are now emitted **only on http(s)**; plain nocookie embed on file://. On any server (preview or production) playback verified working. A one-click **local preview** launcher was added: `start-preview.bat` → http://127.0.0.1:8080 with no-cache headers. | `4dc7197`, `b2845c4` |
+| **Blog thumbnails not showing** | `main.js` blog-card renderer used `images/…` relative to `/blog/` → every thumbnail 404'd into the ✍️ placeholder. Fixed to `../images/`; all 6 thumbs verified loading. | `4dc7197` |
+| **Community album too basic** | Replaced the auto-carousel with an editorial mosaic ("modern album"): varied feature-tile grid, hover zoom + caption scrubs (On Air / The Crew / Studio Sessions / Doha Meetups / Behind the Scenes / Family), staggered scroll reveal, and a full-screen lightbox with counter, arrows, keyboard nav and focus restore. Old carousel CSS removed. | `96fc05c` |
 
 ---
 
@@ -71,13 +79,21 @@
 
 - [x] Every Priority 1 (HIGH) item fixed and verified
 - [x] Every Priority 2 (MEDIUM) item fixed and verified (ep-001/002 IDs deferred with reason)
-- [x] No horizontal scroll on any page at any tested width (10 pages × 6 widths)
+- [x] No horizontal scroll on any page at any tested width (10 pages × 6 widths, re-verified on the final build via :8080)
 - [x] No literal `?` glyphs anywhere in rendered output (full-repo pattern grep)
 - [x] All social, YouTube, Apple, mailto/WhatsApp links resolve live (HTTP 200)
 - [x] Every page unique title + description, correct canonical, no duplicate pairs
 - [~] Lighthouse: A/BP/SEO thresholds met on all runs; Performance ≥85 met on desktop and sponsors-mobile; **mobile home/episode to be re-certified on production** (sandbox throttling — desktop LCP 0.8s proves the build is fast)
-- [x] Git history clean: 13 commits, one logical fix group each
+- [x] Git history clean: 17 commits, one logical fix group each
 - [x] `audit-followup.md` written (this file)
+
+### Final review sweep (post-album redesign, on real project files)
+- JS: main.js / data.js / sw.js / middleware.js all pass `node --check`
+- Encoding: every text file valid UTF-8, zero literal U+FFFD, zero `?` glyph artifacts
+- HTML: div/section/main balance clean on all 15 pages, no old-hero remnants
+- Assets: all 22 album WebP files + all 6 blog covers present
+- Overflow: clean 360→1920px on 10 pages
+- Functional: album grid renders 22 tiles, lightbox opens with counter (01/22) and scroll lock; blog thumbs 6/6; embeds carry nocookie + credentialless + valid http origin; mobile menu closes on in-panel link tap (code verified; same close routine as the working outside-click path)
 
 ## 5. Ready-for-deployment statement
 
