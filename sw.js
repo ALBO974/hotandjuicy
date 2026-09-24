@@ -2,7 +2,7 @@
  * Network-first for pages (fresh content), stale-while-revalidate
  * for assets. Bump CACHE_VERSION whenever shell files change.
  * ────────────────────────────────────────────────────────── */
-const CACHE_VERSION = 'hj-v3';
+const CACHE_VERSION = 'hj-v4';
 
 const PRECACHE = [
   '/',
