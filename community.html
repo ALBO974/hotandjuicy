@@ -419,6 +419,22 @@
     if (e.key === 'ArrowRight') open(current + 1);
     if (e.key === 'ArrowLeft') open(current - 1);
   });
+
+  // touch: swipe left/right to move through the album
+  var touchX = null, touchY = null;
+  lb.addEventListener('touchstart', function (e) {
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    var dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) open(current + 1); else open(current - 1);
+    }
+    touchX = touchY = null;
+  }, { passive: true });
 })();
 </script>
 </body>

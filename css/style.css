@@ -71,6 +71,8 @@
 
 /* ── RESET ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-tap-highlight-color: transparent; }
+a, button, input, select, textarea, [role="button"] { touch-action: manipulation; }
 body { overflow-wrap: break-word; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
@@ -1769,4 +1771,22 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 @media (max-width: 560px) {
   .lightbox__nav { width: 40px; height: 40px; font-size: 1.25rem; }
   .lightbox__figure img { max-height: 66vh; }
+}
+
+
+/* ── TOUCH-SCREEN COMPATIBILITY ──────────────────────────── */
+/* iOS Safari auto-zooms into inputs with font-size < 16px */
+@media (hover: none) and (pointer: coarse) {
+  input, textarea, select { font-size: 16px !important; }
+
+  /* keep the fixed mobile CTA from covering footer content and taps */
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+
+  /* hover effects don't exist on touch: drop sticky lifts/glows */
+  .album__tile:hover img, .album__tile:hover .album__scrim, .album__tile:hover .album__caption { transform: none; opacity: 0; }
+  .album__tile:hover { box-shadow: none; border-color: var(--c-border); }
+
+  /* comfortable finger targets for compact controls */
+  .btn { min-height: 44px; }
+  .social-link { display: inline-flex; align-items: center; min-height: 44px; }
 }
