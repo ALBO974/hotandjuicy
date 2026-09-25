@@ -321,7 +321,31 @@
   if (!grid) return;
 
   var TOTAL = 22;
-  var CAPTIONS = ['On Air', 'The Crew', 'Studio Sessions', 'Doha Meetups', 'Behind the Scenes', 'Family'];
+  // per-photo captions: [tag, label] — matched to the actual image content
+  var CAPTIONS = [
+    ['MERCH', 'Fresh Fit'],
+    ['COMMUNITY', 'Matchday Crew'],
+    ['COMMUNITY', 'Cap Delivery'],
+    ['COMMUNITY', 'Rep the Mic'],
+    ['COMMUNITY', 'Event Day'],
+    ['MERCH', 'The Classic Tee'],
+    ['COMMUNITY', 'Drip Check'],
+    ['COMMUNITY', 'Night Out'],
+    ['COMMUNITY', 'Cap Season'],
+    ['NAIROBI', 'Street Style'],
+    ['MERCH', 'New Drop'],
+    ['NAIROBI', 'Merch in the City'],
+    ['COMMUNITY', 'Twinning'],
+    ['COMMUNITY', 'Know the Mic'],
+    ['COMMUNITY', 'Event Mode'],
+    ['COMMUNITY', 'Point to the Flame'],
+    ['AWARDS', 'Awards Night'],
+    ['AWARDS', 'Big TikTok Awards'],
+    ['AWARDS', 'The Squad'],
+    ['AWARDS', 'Team Hot & Juicy'],
+    ['AWARDS', 'Honored'],
+    ['AWARDS', 'Trophy Moment']
+  ];
   // curated mosaic: [colSpan, rowSpan] per tile (6-col grid on desktop)
   var SPANS = [
     [3,2],[2,1],[1,1],[2,2],[1,1],[2,1],
@@ -338,12 +362,13 @@
     tile.className = 'album__tile';
     tile.style.gridColumn = 'span ' + span[0];
     tile.style.gridRow = 'span ' + span[1];
-    tile.setAttribute('aria-label', 'Open photo: ' + CAPTIONS[(i - 1) % CAPTIONS.length] + ' ' + i);
+    var cap0 = CAPTIONS[i - 1];
+    tile.setAttribute('aria-label', 'Open photo: ' + cap0[1] + ' (' + cap0[0] + ')');
     tile.setAttribute('data-index', i - 1);
 
     var img = document.createElement('img');
     img.src = 'images/gallery-' + i + '.webp';
-    img.alt = CAPTIONS[(i - 1) % CAPTIONS.length] + ' — Hot & Juicy community moment ' + i;
+    img.alt = cap0[1] + ' — Hot & Juicy community photo ' + i;
     img.loading = 'lazy';
     img.decoding = 'async';
     tile.appendChild(img);
@@ -352,7 +377,7 @@
     scrim.className = 'album__scrim';
     var cap = document.createElement('span');
     cap.className = 'album__caption';
-    cap.innerHTML = '<em>' + CAPTIONS[(i - 1) % CAPTIONS.length] + '</em>Moment ' + (i < 10 ? '0' + i : i);
+    cap.innerHTML = '<em>' + cap0[0] + '</em>' + cap0[1];
     tile.appendChild(scrim);
     tile.appendChild(cap);
 
@@ -389,8 +414,8 @@
     current = (idx + TOTAL) % TOTAL;
     var i = current + 1;
     lbImg.src = 'images/gallery-' + i + '.webp';
-    lbImg.alt = CAPTIONS[current % CAPTIONS.length] + ' — Hot & Juicy community moment ' + i;
-    lbCap.textContent = CAPTIONS[current % CAPTIONS.length];
+    lbImg.alt = CAPTIONS[current][1] + ' — Hot & Juicy community photo ' + i;
+    lbCap.textContent = CAPTIONS[current][0] + ' — ' + CAPTIONS[current][1];
     lbCount.textContent = pad(i) + ' / ' + pad(TOTAL);
     if (lb.hidden) {
       lastFocus = document.activeElement;
