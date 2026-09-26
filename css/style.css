@@ -1795,7 +1795,6 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 
   /* hover effects don't exist on touch: drop sticky lifts/glows */
   .album__tile:hover .album__media img { transform: none; }
-  .album__tile:hover .album__scrim, .album__tile:hover .album__caption { opacity: 1; transform: none; }
   .album__tile:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); border-color: var(--c-border); }
   .album__tile::before { background: var(--c-amber); }
   .album__tile::after { color: var(--c-bg); }

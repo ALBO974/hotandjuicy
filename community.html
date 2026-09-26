@@ -334,13 +334,7 @@
     media.appendChild(img);
     tile.appendChild(media);
 
-    var scrim = document.createElement('span');
-    scrim.className = 'album__scrim';
-    var cap = document.createElement('span');
-    cap.className = 'album__caption';
-    cap.innerHTML = '<em>' + cap0[0] + '</em>' + cap0[1];
-    tile.appendChild(scrim);
-    tile.appendChild(cap);
+    // no on-image caption: the folder tab (tag) + lightbox carry the labels
 
     grid.appendChild(tile);
     tiles.push(tile);
