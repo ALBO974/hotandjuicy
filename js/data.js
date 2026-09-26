@@ -53,6 +53,24 @@ const episodes = [
     trending:    false
   },
    {
+     id:          "ep-003",
+     number:      67,
+     type:        "full",
+     title:       "Andrew Kibe's Advice to the Youth That Every Young Kenyan Needs to Hear",
+     slug:        "andrew-kibe-advice-to-the-youth",
+     youtubeId:   "ADvNYcpFo0w",
+     spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
+     description: "Andrew Kibe pulls no punches with advice every young Kenyan needs to hear — career, money, relationships, and cutting through the noise.",
+     showNotes:   "A raw conversation with Andrew Kibe about what young Kenyans get wrong and how to fix it — no sugarcoating, just the truth.",
+     transcript:  "",
+     topics:      ["Youth advice", "Career and money", "Andrew Kibe"],
+     tags:        ["advice", "youth", "interview"],
+     duration:    "58 min",
+     publishedAt: "2026-09-09",
+     featured:    false,
+     trending:    false
+  },
+   {
      id:          "ep-006",
      number:      57,
      type:        "full",
@@ -265,24 +283,6 @@ const episodes = [
     tags:        ["andrew kibe", "nightlife", "kenya", "hao podcast"],
     duration:    "74 min",
     publishedAt: "2025-06-13",
-    featured:    false,
-    trending:    false
-  },
-   {
-     id:          "ep-003",
-     number:      3,
-     type:        "full",
-     title:       "Food Controversies",
-     slug:        "food-controversies",
-     youtubeId:   "PMP3Tqt0lUk",
-     spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-    description: "We settle the biggest food debates — ugali vs chapati, nyama choma protocols, and the dishes that divide families. Nothing is off the table.",
-    showNotes:   "A deep dive into the food controversies that split Kenyans apart. From the great ugali debate to the politics of chapati at weddings.",
-    transcript:  "",
-    topics:      ["Kenyan food debates", "Ugali controversy", "Chapati politics", "Nyama choma culture"],
-    tags:        ["food", "culture", "debate"],
-    duration:    "48 min",
-    publishedAt: "2026-09-17",
     featured:    false,
     trending:    false
   }
