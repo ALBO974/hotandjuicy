@@ -71,6 +71,40 @@ const episodes = [
      trending:    false
   },
    {
+     id:          "ep-011",
+     number:      66,
+     type:        "full",
+     title:       "Andy Deh Finally Apologizes After Being Cancelled Over Natalie Githinji P2 Claims",
+     slug:        "andy-deh-apologizes-natalie-githinji-p2",
+     youtubeId:   "FEnrx9ipqGw",
+     spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
+    description: "Andy Deh finally apologizes after being cancelled over the Natalie Githinji P2 claims — the full story, the apology, and where things stand now.",
+    showNotes:   "The cancellation, the apology, and the fallout — Andy Deh sits down with us to set the record straight on the Natalie Githinji P2 claims.",
+    transcript:  "", // TODO: Add full episode transcript for SEO
+    topics:      ["Andy Deh", "Natalie Githinji", "The P2 claims", "The apology"],
+    tags:        ["andy deh", "drama", "interview"],
+    duration:    "74 min",
+    publishedAt: "2026-09-09",
+    featured:    false,
+    trending:    false
+  }
+];
+
+/* ── HOSTS ───────────────────────────────────────────────── */
+const hosts = [
+  {
+    id:       "mapettco",
+    name:     "Mapettco",
+    title:    "Co-Host & Producer",
+    bio:      "Content creator, culture commentator, and the one who always has the hottest take. Mapettco brings energy, humor, and zero filter to every conversation.",
+    image:    "host-mapettco.jpg",
+    socials: {
+      instagram: "https://www.instagram.com/mapettco",
+      tiktok:    "https://www.tiktok.com/@mapettco",
+      youtube:   "https://www.youtube.com/@mapettcokenya"
+    }
+  },
+   {
      id:          "ep-006",
      number:      57,
      type:        "full",
@@ -268,40 +302,7 @@ const episodes = [
     featured:    false,
     trending:    false
   },
-   {
-     id:          "ep-011",
-     number:      44,
-     type:        "full",
-     title:       "ANDREW KIBE: WHY KENYAN MEN HAVE ABANDONED CLUBS IN 2025 ft HAO",
-     slug:        "andrew-kibe-why-kenyan-men-have-abandoned-clubs-in-2025-ft-hao",
-     youtubeId:   "L7rfxA9LV5U",
-     spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-    description: "Andrew Kibe joins us to break down why Kenyan men are abandoning clubs in 2025. A deep dive into changing nightlife culture, relationships, and the new social landscape.",
-    showNotes:   "In this collaboration with HAO Podcast, Andrew Kibe shares his unfiltered take on why Kenyan men are staying away from clubs. We discuss the economics, the culture shift, and what this means for nightlife in Kenya.",
-    transcript:  "", // TODO: Add full episode transcript for SEO
-    topics:      ["Andrew Kibe", "Kenyan nightlife 2025", "Why men leave clubs", "HAO Podcast collaboration"],
-    tags:        ["andrew kibe", "nightlife", "kenya", "hao podcast"],
-    duration:    "74 min",
-    publishedAt: "2025-06-13",
-    featured:    false,
-    trending:    false
-  }
-];
 
-/* ── HOSTS ───────────────────────────────────────────────── */
-const hosts = [
-  {
-    id:       "mapettco",
-    name:     "Mapettco",
-    title:    "Co-Host & Producer",
-    bio:      "Content creator, culture commentator, and the one who always has the hottest take. Mapettco brings energy, humor, and zero filter to every conversation.",
-    image:    "host-mapettco.jpg",
-    socials: {
-      instagram: "https://www.instagram.com/mapettco",
-      tiktok:    "https://www.tiktok.com/@mapettco",
-      youtube:   "https://www.youtube.com/@mapettcokenya"
-    }
-  },
   {
     id:       "kabua",
     name:     "Kabua",
