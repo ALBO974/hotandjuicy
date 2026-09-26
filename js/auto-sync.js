@@ -39,20 +39,62 @@
     videos.forEach(function (v) {
       var num = episodeNumberFromTitle(v.title);
       var badge = num ? 'Ep ' + num : 'New';
+
       var a = document.createElement('a');
       a.className = 'card ep-card';
       a.href = TEMPLATE_PATH + '?yt=' + v.id;
-      a.innerHTML =
-        '<div class="ep-card__thumb">' +
-          '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy" width="480" height="270" decoding="async">' +
-          '<span class="ep-card__badge ep-card__badge--new">' + badge + '</span>' +
-        '</div>' +
-        '<div class="ep-card__body">' +
-          '<span class="ep-card__meta">' + fmtDate(v.published) + '</span>' +
-          '<div class="ep-card__title">' + v.title + '</div>' +
-          '<p class="ep-card__excerpt">' + (v.description || '').slice(0, 120) + '…</p>' +
-        '</div>' +
-        '<div class="ep-card__footer"><span>Hot &amp; Juicy Podcast</span><span>Watch on YouTube →</span></div>';
+
+      var thumb = document.createElement('div');
+      thumb.className = 'ep-card__thumb';
+
+      var img = document.createElement('img');
+      img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg';
+      img.alt = '';
+      img.loading = 'lazy';
+      img.width = 480;
+      img.height = 270;
+      img.decoding = 'async';
+      // thumbnail fallback chain: hqdefault -> mqdefault -> default -> placeholder
+      var step = 0;
+      img.onerror = function () {
+        step++;
+        if (step === 1) img.src = 'https://i.ytimg.com/vi/' + v.id + '/mqdefault.jpg';
+        else if (step === 2) img.src = 'https://i.ytimg.com/vi/' + v.id + '/default.jpg';
+        else {
+          img.style.display = 'none';
+          var ph = document.createElement('div');
+          ph.className = 'ep-card__thumb-placeholder';
+          ph.textContent = '🎙';
+          thumb.replaceChildren(ph);
+        }
+      };
+      thumb.appendChild(img);
+
+      var badgeEl = document.createElement('span');
+      badgeEl.className = 'ep-card__badge ep-card__badge--new';
+      badgeEl.textContent = badge;
+      thumb.appendChild(badgeEl);
+      a.appendChild(thumb);
+
+      var body = document.createElement('div');
+      body.className = 'ep-card__body';
+      var meta = document.createElement('span');
+      meta.className = 'ep-card__meta';
+      meta.textContent = fmtDate(v.published);
+      var title = document.createElement('div');
+      title.className = 'ep-card__title';
+      title.textContent = v.title;
+      var excerpt = document.createElement('p');
+      excerpt.className = 'ep-card__excerpt';
+      excerpt.textContent = (v.description || '').slice(0, 120) + '…';
+      body.appendChild(meta); body.appendChild(title); body.appendChild(excerpt);
+      a.appendChild(body);
+
+      var foot = document.createElement('div');
+      foot.className = 'ep-card__footer';
+      foot.innerHTML = '<span>Hot &amp; Juicy Podcast</span><span>Watch on YouTube →</span>';
+      a.appendChild(foot);
+
       frag.appendChild(a);
     });
     grid.insertBefore(frag, grid.firstChild);
@@ -117,6 +159,9 @@
       if (ep.youtubeId) knownIds[ep.youtubeId] = true;
     });
     var fresh = videos.filter(function (v) {
+      // skip live-stream VODs: their auto-thumbnails are dark "stream ended"
+      // frames with no real content — they read as empty cards
+      if (/is\s+live/i.test(v.title || '')) return false;
       return v.id && !knownIds[v.id];
     });
     if (!fresh.length) return;
