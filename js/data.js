@@ -24,7 +24,6 @@ const episodes = [
      slug:        "send-me-anonymous-messages",
      youtubeId:   "PMP3Tqt0lUk",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We open up the anonymous message box and read the most honest, brutal, and hilarious messages from our audience. Nothing is off limits.",
     showNotes:   "In this episode we let the people speak — anonymous messages, confessions, hot takes, and questions you've always wanted to ask but never had the guts to say out loud.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -43,7 +42,6 @@ const episodes = [
      slug:        "african-blind-date-show",
      youtubeId:   "J2lohJkx8vs",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We play matchmaker in the very first Hot & Juicy blind date special. Awkward moments, genuine connections, and lots of laughs.",
     showNotes:   "The African Blind Date Show edition 01 — we set up singles, watch the sparks fly (or not), and break down all the dating dynamics you never knew you needed to see.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -62,7 +60,6 @@ const episodes = [
      slug:        "kenyans-in-qatar-exposed-black-tax-fear-and-going-home-talks",
      youtubeId:   "K-_bfFAOwJk",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We expose the real talk about Kenyans living in Qatar — black tax, the fear of going back home, and the uncomfortable truths nobody says out loud.",
     showNotes:   "A deep dive into the Kenyan diaspora experience in Qatar. From black tax obligations to the fear of returning home, we lay it all bare.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -81,7 +78,6 @@ const episodes = [
      slug:        "sharp-boys-exposed-the-dirty-game-behind-the-hustle",
      youtubeId:   "17uCk6-19Bw",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We expose the sharp boys — the dirty game behind the hustle that everyone in the diaspora knows about but rarely talks about openly.",
     showNotes:   "An eye-opening episode where we break down the sharp boy lifestyle, the risks, the rewards, and the reality behind the flashy social media posts.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -100,7 +96,6 @@ const episodes = [
      slug:        "andrew-kibe-why-kenyan-men-have-abandoned-clubs-in-2025-ft-hao",
      youtubeId:   "L7rfxA9LV5U",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "Andrew Kibe joins us to break down why Kenyan men are abandoning clubs in 2025. A deep dive into changing nightlife culture, relationships, and the new social landscape.",
     showNotes:   "In this collaboration with HAO Podcast, Andrew Kibe shares his unfiltered take on why Kenyan men are staying away from clubs. We discuss the economics, the culture shift, and what this means for nightlife in Kenya.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -119,7 +114,6 @@ const episodes = [
      slug:        "from-gulf-money-to-mjengo-hustle",
      youtubeId:   "bhcHPfPjOK0",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "The journey from making Gulf money to the mjengo hustle — we talk about the shift, the reality check, and what it really means to build something back home.",
     showNotes:   "We discuss the transition from working in the Gulf to pursuing the mjengo hustle in Kenya. The money, the mindset, and the move that changes everything.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -138,7 +132,6 @@ const episodes = [
      slug:        "who-is-most-likely-ft-hao-podcast",
      youtubeId:   "JU8yJMmTNGs",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We team up with the HAO Podcast for a hilarious game of Who Is Most Likely. Expect chaos, unexpected confessions, and plenty of laughs.",
     showNotes:   "A crossover episode with HAO Podcast where we play Who Is Most Likely — revealing the wildest things about each other and our co-hosts.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -157,7 +150,6 @@ const episodes = [
      slug:        "andrew-kibe-on-njugush-and-wakafinywa-breakup",
      youtubeId:   "TDExkYh3drQ",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "Andrew Kibe joins us to break down the Njugush and Wakafinywa breakup — the drama, the reactions, and what it says about Kenyan content creation.",
     showNotes:   "We sit down with Andrew Kibe to discuss the Njugush and Wakafinywa breakup saga. Kibe gives his unfiltered take on the situation and the Kenyan YouTube scene.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -176,7 +168,6 @@ const episodes = [
      slug:        "are-we-living-in-the-matrix-simulation-theory-explained",
      youtubeId:   "l6Y2hEkz1_8",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We dive deep into simulation theory — are we living in a simulation? We debate the evidence, the philosophers, and the mind-bending possibilities.",
     showNotes:   "A philosophical deep dive into simulation theory. We discuss Elon Musk's takes, Nick Bostrom's argument, and whether any of this is even real.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -195,7 +186,6 @@ const episodes = [
      slug:        "andrew-kibe-breaks-silence-on-bbc-interview-controversy",
      youtubeId:   "AAAjCCc77yc",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "Andrew Kibe finally breaks his silence on the BBC interview controversy that had the internet talking. We get the full story, no filters.",
     showNotes:   "In this explosive episode, Andrew Kibe addresses the BBC interview controversy head-on. We discuss the backlash, the media narrative, and what really happened.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -214,7 +204,6 @@ const episodes = [
      slug:        "he-was-a-security-guard-until-sheikh-al-mayassa-discovered-him",
      youtubeId:   "o0nvshL0_7c",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "An incredible story of a Kenyan who went from working as a security guard to being discovered by Sheikh Al Mayassa in Qatar. A true rags-to-riches tale.",
     showNotes:   "We sit down with a Kenyan whose life changed overnight when Sheikh Al Mayassa discovered him working as a security guard. His journey from obscurity to the spotlight is nothing short of inspiring.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -233,7 +222,6 @@ const episodes = [
      slug:        "from-security-guard-to-qatars-highest-paid-kenyan-artist",
      youtubeId:   "gijC-jIyc2c",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "The inspiring story of a Kenyan who went from security guard to becoming Qatar's highest-paid Kenyan artist. A journey of resilience, talent, and determination.",
     showNotes:   "We interview the Kenyan artist who defied the odds to become Qatar's highest-paid Kenyan creative. From humble beginnings to international recognition, this is a story you need to hear.",
     transcript:  "", // TODO: Add full episode transcript for SEO
@@ -252,7 +240,6 @@ const episodes = [
      slug:        "food-controversies",
      youtubeId:   "PMP3Tqt0lUk",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "We settle the biggest food debates — ugali vs chapati, nyama choma protocols, and the dishes that divide families. Nothing is off the table.",
     showNotes:   "A deep dive into the food controversies that split Kenyans apart. From the great ugali debate to the politics of chapati at weddings.",
     transcript:  "",
@@ -271,7 +258,6 @@ const episodes = [
      slug:        "dating-modern-age",
      youtubeId:   "",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "Dating apps, situationships, red flags, and real talk about navigating relationships as young Africans in 2025. Nothing is off limits.",
     showNotes:   "We dig into the realities of modern dating — from situationships to dating app burnout, love languages, and what we actually want in a partner.",
     transcript:  "",
@@ -290,7 +276,6 @@ const episodes = [
      slug:        "who-are-we-introduction",
      youtubeId:   "",
      spotifyUrl:  "https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV?si=esMUp_g5QKGkZ8k3c_UscA",
-     appleUrl:    "https://podcasts.apple.com/us/podcast/hot-and-juicy-podcast/id1768033282",
     description: "Meet Mapettco, Kabua, and Keithalfred01. We introduce ourselves, talk about why we started this podcast, and give you a taste of the conversations to come.",
     showNotes:   "The very first episode of Hot & Juicy. We sit down, get comfortable, and tell you everything you need to know about who we are and what this podcast is about.",
     transcript:  "",
