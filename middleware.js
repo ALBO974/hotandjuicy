@@ -10,7 +10,7 @@
  */
 import metas from './metas.js';
 
-const SITE = 'https://hotandjuicypodcast.com';
+const SITE = 'https://www.hotandjuicypodcast.com';
 
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
