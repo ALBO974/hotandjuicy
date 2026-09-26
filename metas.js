@@ -81,13 +81,13 @@ export default {
   "/episodes/ep-002": {
     "title": "Dating in the Modern Age — Hot & Juicy Podcast",
     "description": "Dating apps, situationships, red flags, and real talk about navigating relationships as young Africans in 2025. Nothing is off limits.",
-    "image": "https://hotandjuicypodcast.com/images/og-default.jpg",
+    "image": "https://i.ytimg.com/vi/hdsLogtyQjE/maxresdefault.jpg",
     "type": "video.episode"
   },
   "/episodes/ep-001": {
     "title": "Who Are We? The Introduction — Hot & Juicy Podcast",
     "description": "Meet Mapettco, Kabua, and Keithalfred01. We introduce ourselves, talk about why we started this podcast, and give you a taste of the conversations to come.",
-    "image": "https://hotandjuicypodcast.com/images/og-default.jpg",
+    "image": "https://i.ytimg.com/vi/OYCwtUXXbm4/maxresdefault.jpg",
     "type": "video.episode"
   },
   "/blog/post-001": {
