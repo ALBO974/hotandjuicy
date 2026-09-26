@@ -23,7 +23,7 @@ function stripHtml(s) {
   return decodeEntities(String(s)).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const rss = await fetch(
       `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`,

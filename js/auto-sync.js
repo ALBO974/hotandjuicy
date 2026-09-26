@@ -33,7 +33,7 @@
 
   /* ── EPISODES PAGE: prepend auto episodes as folder cards ── */
   function renderIntoGrid(videos) {
-    var grid = document.getElementById('episodesGrid');
+    var grid = document.getElementById('episodeGrid');
     if (!grid) return;
     var frag = document.createDocumentFragment();
     videos.forEach(function (v) {
@@ -103,7 +103,7 @@
     });
     if (!fresh.length) return;
 
-    if (document.getElementById('episodesGrid')) renderIntoGrid(fresh);
+    if (document.getElementById('episodeGrid')) renderIntoGrid(fresh);
     var yt = new URLSearchParams(location.search).get('yt');
     if (yt) {
       var match = fresh.filter(function (v) { return v.id === yt; })[0];
@@ -113,7 +113,7 @@
 
   function init() {
     var ytParam = new URLSearchParams(location.search).get('yt');
-    var onEpisodesPage = document.getElementById('episodesGrid');
+    var onEpisodesPage = document.getElementById('episodeGrid');
     var onTemplatePage = location.pathname.indexOf('episode-template') !== -1;
     if (!onEpisodesPage && !onTemplatePage) return;
     fetch(API)
