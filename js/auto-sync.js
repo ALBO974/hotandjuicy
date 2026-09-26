@@ -58,29 +58,47 @@
     grid.insertBefore(frag, grid.firstChild);
   }
 
-  /* ── EPISODE TEMPLATE: render ?yt=<videoId> from the feed ── */
+  /* ── EPISODE TEMPLATE: main.js replaces the whole #episodePage with a
+     not-found panel when the id isn't in data.js — so for ?yt= links we
+     rebuild the full episode page ourselves from the feed data ── */
   function renderTemplate(v) {
+    var page = document.getElementById('episodePage');
+    if (!page) return;
     var num = episodeNumberFromTitle(v.title);
-    var title = v.title + (num ? ' — Ep ' + num : '') + ' | Hot & Juicy Podcast';
+    var badge = num ? 'Ep ' + num : 'New';
+    var esc = v.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    var desc = (v.description || 'Fresh from the Hot & Juicy channel.');
+    var date = fmtDate(v.published);
+
+    page.innerHTML =
+      '<section class="hero2" id="main-content" aria-label="Episode hero">' +
+        '<div class="hero2-inner">' +
+          '<div class="hero2-art">' +
+            '<img src="/images/Logo.jpg" alt="Hot & Juicy Podcast logo" width="500" height="500" loading="eager" decoding="async">' +
+          '</div>' +
+          '<div class="hero2-copy">' +
+            '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/episodes">Home</a><span>›</span><a href="/episodes">Episodes</a><span>›</span><span>' + esc.slice(0, 40) + '</span></nav>' +
+            '<span class="hero2-pill">' + badge.toUpperCase() + '</span>' +
+            '<div class="video-wrap" style="margin-top:var(--sp-4);">' +
+              '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0" title="' + esc + '" loading="lazy" credentialless allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe>' +
+            '</div>' +
+            '<h1 class="hero2-title hero2-title--wrap" style="margin-top:var(--sp-4);">' + esc + '</h1>' +
+            '<p class="hero2-desc">' + desc.slice(0, 300) + '</p>' +
+            '<p class="hero2-kicker">' + date + '</p>' +
+            '<div class="cta-row">' +
+              '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch on YouTube</a>' +
+              '<a href="https://open.spotify.com/show/7MQ2UnU6wVB2YBmXF5FgGV" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Listen on Spotify</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</section>';
 
     document.title = v.title + ' — Hot & Juicy Podcast';
-    var t = document.getElementById('ep-title');
-    if (t) t.textContent = v.title;
-    var d = document.getElementById('ep-date');
-    if (d) d.textContent = fmtDate(v.published);
-    var desc = document.getElementById('ep-desc');
-    if (desc) desc.textContent = (v.description || 'Fresh from the Hot & Juicy channel.').slice(0, 400);
-    var crumb = document.getElementById('ep-breadcrumb');
-    if (crumb) crumb.textContent = v.title.slice(0, 40) + (v.title.length > 40 ? '…' : '');
-    var embed = document.getElementById('ep-embed');
-    if (embed) {
-      embed.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id +
-        '?rel=0" title="' + v.title.replace(/"/g, '&quot;') +
-        '" loading="lazy" credentialless allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe>';
-    }
+    setMeta('description', desc.slice(0, 158));
     setMeta('og:title', v.title);
-    setMeta('og:description', (v.description || '').slice(0, 160));
+    setMeta('og:description', desc.slice(0, 160));
     setMeta('og:image', 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg');
+    setMeta('og:url', location.origin + location.pathname + '?yt=' + v.id);
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', location.origin + location.pathname + '?yt=' + v.id);
 
