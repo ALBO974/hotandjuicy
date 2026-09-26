@@ -45,6 +45,7 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return; // let fonts/CDN handle themselves
+  if (url.pathname.startsWith('/api/')) return;            // auto-sync API: always fresh
 
   if (request.mode === 'navigate') {
     // Pages: network first, cache fallback (works offline after first visit)

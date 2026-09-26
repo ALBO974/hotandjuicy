@@ -1913,3 +1913,6 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 @media (hover: none) and (pointer: coarse) {
   .community-card__body { transform: none; }   /* touch: caption always visible */
 }
+
+/* auto-synced uploads: coral "New"/number tab badge variant */
+.ep-card__badge--new { background: var(--c-coral-btn); color: #fff; }

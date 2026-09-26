@@ -153,7 +153,10 @@ function sendViaEmailJS(formEl, templateId, successElId, btnEl) {
     .catch((err) => {
       if (btnEl) { btnEl.textContent = 'Try Again'; btnEl.disabled = false; }
       console.error('EmailJS error:', err);
-      alert('Something went wrong. Please email us at hotandjuicy24@gmail.com');
+      // self-diagnosing: surface the specific EmailJS failure (e.g. 412
+      // 'Invalid grant' = Gmail OAuth needs reconnecting on the dashboard)
+      const detail = (err && (err.text || err.message)) ? ' (' + (err.status || '') + ' ' + (err.text || err.message) + ')' : '';
+      alert('Something went wrong' + detail + '. Please email us at hotandjuicy24@gmail.com');
     });
 }
 
@@ -241,6 +244,8 @@ function sendViaEmailJS(formEl, templateId, successElId, btnEl) {
           .catch((err) => {
             if (btn) { btn.textContent = 'Try Again'; btn.disabled = false; }
             console.error('EmailJS newsletter error:', err);
+            const detail = (err && (err.text || err.message)) ? ' (' + (err.status || '') + ' ' + (err.text || err.message) + ')' : '';
+            input.placeholder = 'Signup failed' + detail;
           });
       } else {
         setTimeout(() => {
