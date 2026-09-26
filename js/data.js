@@ -18,7 +18,7 @@ const EMAILJS_CONFIG = {
 const episodes = [
    {
      id:          "ep-015",
-     number:      15,
+     number:      49,
      type:        "full",
      title:       "SEND ME ANONYMOUS MESSAGES",
      slug:        "send-me-anonymous-messages",
@@ -36,7 +36,7 @@ const episodes = [
   },
    {
      id:          "ep-014",
-     number:      14,
+     number:      null,
      type:        "full",
      title:       "AFRICAN BLIND DATE SHOW",
      slug:        "african-blind-date-show",
@@ -54,7 +54,7 @@ const episodes = [
   },
    {
      id:          "ep-013",
-     number:      13,
+     number:      50,
      type:        "full",
      title:       "KENYANS IN QATAR EXPOSED — Black Tax, Fear & Going Home Talks",
      slug:        "kenyans-in-qatar-exposed-black-tax-fear-and-going-home-talks",
@@ -72,7 +72,7 @@ const episodes = [
   },
    {
      id:          "ep-012",
-     number:      12,
+     number:      52,
      type:        "full",
      title:       "SHARP BOYS EXPOSED — The Dirty Game Behind The Hustle",
      slug:        "sharp-boys-exposed-the-dirty-game-behind-the-hustle",
@@ -90,7 +90,7 @@ const episodes = [
   },
    {
      id:          "ep-011",
-     number:      11,
+     number:      44,
      type:        "full",
      title:       "ANDREW KIBE: WHY KENYAN MEN HAVE ABANDONED CLUBS IN 2025 ft HAO",
      slug:        "andrew-kibe-why-kenyan-men-have-abandoned-clubs-in-2025-ft-hao",
@@ -108,7 +108,7 @@ const episodes = [
   },
    {
      id:          "ep-010",
-     number:      10,
+     number:      54,
      type:        "full",
      title:       "From Gulf Money to Mjengo Hustle",
      slug:        "from-gulf-money-to-mjengo-hustle",
@@ -126,7 +126,7 @@ const episodes = [
   },
    {
      id:          "ep-009",
-     number:      9,
+     number:      null,
      type:        "full",
      title:       "WHO IS MOST LIKELY ft HAO PODCAST",
      slug:        "who-is-most-likely-ft-hao-podcast",
@@ -144,7 +144,7 @@ const episodes = [
   },
    {
      id:          "ep-008",
-     number:      8,
+     number:      55,
      type:        "full",
      title:       "Andrew Kibe On Njugush And Wakafinywa Breakup",
      slug:        "andrew-kibe-on-njugush-and-wakafinywa-breakup",
@@ -162,7 +162,7 @@ const episodes = [
   },
    {
      id:          "ep-007",
-     number:      7,
+     number:      56,
      type:        "full",
      title:       "Are We Living in The Matrix? Simulation Theory Explained",
      slug:        "are-we-living-in-the-matrix-simulation-theory-explained",
@@ -180,7 +180,7 @@ const episodes = [
   },
    {
      id:          "ep-006",
-     number:      6,
+     number:      57,
      type:        "full",
      title:       "Andrew Kibe Breaks Silence on BBC Interview Controversy",
      slug:        "andrew-kibe-breaks-silence-on-bbc-interview-controversy",
@@ -198,7 +198,7 @@ const episodes = [
   },
    {
      id:          "ep-005",
-     number:      5,
+     number:      null,
      type:        "full",
      title:       "He Was a Security Guard Until Sheikh Al Mayassa Discovered Him",
      slug:        "he-was-a-security-guard-until-sheikh-al-mayassa-discovered-him",
@@ -216,7 +216,7 @@ const episodes = [
   },
    {
      id:          "ep-004",
-     number:      4,
+     number:      null,
      type:        "full",
      title:       "From Security Guard to Qatar's Highest-Paid Kenyan Artist",
      slug:        "from-security-guard-to-qatars-highest-paid-kenyan-artist",
@@ -252,7 +252,7 @@ const episodes = [
   },
    {
      id:          "ep-002",
-     number:      2,
+     number:      68,
      type:        "full",
      title:       "How to Dress & Look Expensive Without Breaking the Bank",
      slug:        "how-to-dress-look-expensive",
@@ -270,7 +270,7 @@ const episodes = [
   },
    {
      id:          "ep-001",
-     number:      1,
+     number:      69,
      type:        "full",
      title:       "Hot & Juicy Podcast Is Live!",
      slug:        "hot-and-juicy-is-live",

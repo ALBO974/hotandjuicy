@@ -450,7 +450,7 @@ function handleImageError(img, fallback) {
         <div class="ep-card__thumb">
           ${thumbHtml}
           <div class="ep-card__overlay"><div class="ep-card__play">▶</div></div>
-          <span class="ep-card__badge${ep.type==='short'?' ep-card__badge--short':''}">${ep.type==='short'?'Short':'Ep '+ep.number}</span>
+          <span class="ep-card__badge${ep.type==='short'?' ep-card__badge--short':''}">${ep.type==='short'?'Short':(ep.number?'Ep '+ep.number:'Special')}</span>
         </div>
         <div class="ep-card__body">
           <div class="ep-card__meta">
