@@ -90,83 +90,7 @@
   </div>
 </section>
 
-<!-- MEET THE HOSTS — folder-style cards -->
-<section class="section community-hosts" aria-labelledby="hosts-cards-heading">
-  <div class="container">
-    <div class="section-hdr section-hdr--center">
-      <span class="eyebrow">The Voices</span>
-      <h2 id="hosts-cards-heading">Meet the Hosts</h2>
-      <p>Three friends, one table, zero boring conversations — get to know the people behind the mic.</p>
-    </div>
-    <div class="community-grid">
-      <article class="community-card" data-tab="HOST" tabindex="0">
-        <figure class="community-card__media">
-          <img src="images/host-mapettco.jpg" alt="Mapettco — Hot &amp; Juicy Podcast host" loading="lazy" width="1587" height="2245" decoding="async">
-        </figure>
-        <span class="community-card__scrim" aria-hidden="true"></span>
-        <div class="community-card__body">
-          <h3 class="community-card__name">Mapettco</h3>
-          <p class="community-card__role">Co-Host — the energy that keeps the table loud</p>
-        </div>
-      </article>
-      <article class="community-card" data-tab="HOST" tabindex="0">
-        <figure class="community-card__media">
-          <img src="images/host-kabua.jpg" alt="Kabua — Hot &amp; Juicy Podcast host" loading="lazy" width="1587" height="2245" decoding="async">
-        </figure>
-        <span class="community-card__scrim" aria-hidden="true"></span>
-        <div class="community-card__body">
-          <h3 class="community-card__name">Kabua</h3>
-          <p class="community-card__role">Co-Host — sharp takes, zero filter</p>
-        </div>
-      </article>
-      <article class="community-card" data-tab="HOST" tabindex="0">
-        <figure class="community-card__media">
-          <img src="images/host-keith.jpg" alt="Keithalfred01 — Hot &amp; Juicy Podcast host" loading="lazy" width="1587" height="2245" decoding="async">
-        </figure>
-        <span class="community-card__scrim" aria-hidden="true"></span>
-        <div class="community-card__body">
-          <h3 class="community-card__name">Keithalfred01</h3>
-          <p class="community-card__role">Co-Host — the calm before the storm</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT WE DO TOGETHER -->
-<section class="section section--alt" aria-labelledby="together-heading">
-  <div class="container">
-    <div class="section-hdr section-hdr--center">
-      <span class="eyebrow">How We Show Up</span>
-      <h2 id="together-heading">This Is What Community Looks Like</h2>
-      <p>The podcast is the starting point. Here is what happens beyond the microphone.</p>
-    </div>
-    <div class="grid-4" style="gap:var(--sp-4);">
-      <div style="background:var(--c-bg-3);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--sp-6);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:var(--sp-4);">🎙️</div>
-        <h3 style="font-size:var(--fs-base);margin-bottom:var(--sp-2);">Live Recordings</h3>
-        <p style="font-size:var(--fs-sm);">Occasional live recording sessions open to the community in Doha.</p>
-      </div>
-      <div style="background:var(--c-bg-3);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--sp-6);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:var(--sp-4);">📍</div>
-        <h3 style="font-size:var(--fs-base);margin-bottom:var(--sp-2);">Doha Meetups</h3>
-        <p style="font-size:var(--fs-sm);">In-person meetups for the Kenyan and African community in Doha.</p>
-      </div>
-      <div style="background:var(--c-bg-3);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--sp-6);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:var(--sp-4);">💬</div>
-        <h3 style="font-size:var(--fs-base);margin-bottom:var(--sp-2);">Community Stories</h3>
-        <p style="font-size:var(--fs-sm);">Real stories from real listeners featured on the show and blog.</p>
-      </div>
-      <div style="background:var(--c-bg-3);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--sp-6);text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:var(--sp-4);">🤝</div>
-        <h3 style="font-size:var(--fs-base);margin-bottom:var(--sp-2);">Collaborations</h3>
-        <p style="font-size:var(--fs-sm);">Creative collabs with artists, entrepreneurs, and creators in the diaspora.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY — Premium Photo Album -->
+<!-- GALLERY<!-- GALLERY — Premium Photo Album -->
 <section class="section section--alt" aria-labelledby="gallery-heading">
   <div class="container">
     <div class="section-hdr section-hdr--center">
@@ -389,32 +313,26 @@
     ['AWARDS', 'Honored'],
     ['AWARDS', 'Trophy Moment']
   ];
-  // curated mosaic: [colSpan, rowSpan] per tile (6-col grid on desktop)
-  var SPANS = [
-    [3,2],[2,1],[1,1],[2,2],[1,1],[2,1],
-    [1,1],[3,2],[2,1],[1,1],[2,2],[1,1],
-    [2,1],[1,1],[2,2],[3,2],[1,1],[2,1],
-    [1,1],[2,1],[2,2],[1,1]
-  ];
 
   var tiles = [];
   for (var i = 1; i <= TOTAL; i++) {
-    var span = SPANS[(i - 1) % SPANS.length];
     var tile = document.createElement('button');
     tile.type = 'button';
     tile.className = 'album__tile';
-    tile.style.gridColumn = 'span ' + span[0];
-    tile.style.gridRow = 'span ' + span[1];
     var cap0 = CAPTIONS[i - 1];
     tile.setAttribute('aria-label', 'Open photo: ' + cap0[1] + ' (' + cap0[0] + ')');
     tile.setAttribute('data-index', i - 1);
+    tile.setAttribute('data-tab', cap0[0]);   // folder tab label
 
+    var media = document.createElement('span');
+    media.className = 'album__media';
     var img = document.createElement('img');
     img.src = 'images/gallery-' + i + '.webp';
     img.alt = cap0[1] + ' — Hot & Juicy community photo ' + i;
     img.loading = 'lazy';
     img.decoding = 'async';
-    tile.appendChild(img);
+    media.appendChild(img);
+    tile.appendChild(media);
 
     var scrim = document.createElement('span');
     scrim.className = 'album__scrim';
@@ -503,7 +421,7 @@
     }
     touchX = touchY = null;
   }, { passive: true });
-
+})();
 
 /* folder host cards: first tap reveals the caption on touch devices */
 (function initHostCardsTouch() {
