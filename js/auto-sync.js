@@ -91,9 +91,11 @@
   }
 
   function merge(videos) {
-    if (!window.episodes) return;
+    // data.js declares `episodes` as a top-level const in a classic script:
+    // reachable as a bare identifier, but NOT as window.episodes
+    if (typeof episodes === 'undefined' || !episodes || !episodes.length) return;
     knownIds = knownIds || {};
-    window.episodes.forEach(function (ep) {
+    episodes.forEach(function (ep) {
       if (ep.youtubeId) knownIds[ep.youtubeId] = true;
     });
     var fresh = videos.filter(function (v) {
