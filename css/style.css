@@ -1790,3 +1790,113 @@ input, select, textarea { min-width: 0; max-width: 100%; }
   .btn { min-height: 44px; }
   .social-link { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   COMMUNITY HOST CARDS — folder-style (Variant A "Manila")
+   Uses site tokens: --c-amber/--c-coral-btn swap on hover.
+   (To pin the original spec palette instead, hardcode
+   #F5A623 / #E8412A in the two background rules below.)
+   ═══════════════════════════════════════════════════════════ */
+.community-hosts .community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+@media (max-width: 820px) { .community-hosts .community-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .community-hosts .community-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; } }
+
+.community-card {
+  position: relative;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: visible;               /* the folder tab lives OUTSIDE the card top */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  margin-top: 34px;                /* room for the tab above */
+  cursor: default;
+}
+.community-card:hover,
+.community-card:focus-visible {
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px);
+  outline: none;
+}
+.community-card__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;                /* clips the photo to the card shape */
+}
+.community-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.community-card:hover .community-card__media img,
+.community-card:focus-visible .community-card__media img { transform: scale(1.05); }
+.community-card__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17,17,17,0) 45%, rgba(17,17,17,0.88) 100%);
+}
+.community-card__body {
+  position: relative;
+  margin-top: auto;
+  padding: clamp(0.9rem, 2.5vw, 1.25rem);
+  transform: translateY(calc(100% - 3.4rem));   /* rest state: name peeks */
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.community-card:hover .community-card__body,
+.community-card:focus-visible .community-card__body,
+.community-card.is-touched .community-card__body { transform: none; }
+.community-card__name {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.2;
+  margin: 0 0 4px;
+  color: var(--c-cream);
+}
+.community-card__role {
+  font-family: var(--f-body);
+  font-size: clamp(0.78rem, 1.4vw, 0.875rem);
+  color: var(--c-muted);
+  margin: 0;
+}
+/* the manila tab: slanted, top-left, amber -> coral on hover */
+.community-card::before {
+  content: "";
+  position: absolute;
+  top: -33px; left: -1px;
+  width: 42%;
+  height: 34px;
+  background: var(--c-amber);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  transition: background 0.3s ease;
+}
+.community-card::after {
+  content: attr(data-tab);
+  position: absolute;
+  top: -27px; left: 16px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--c-bg);
+  transition: color 0.3s ease;
+}
+.community-card:hover::before,
+.community-card:focus-visible::before { background: var(--c-coral-btn); }
+.community-card:hover::after { color: #fff; }
+@media (hover: none) and (pointer: coarse) {
+  .community-card__body { transform: none; }   /* touch: caption always visible */
+}
